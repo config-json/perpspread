@@ -1,0 +1,8 @@
+# OS
+.DS_store
+
+# Editor
+.vscode
+
+# Sqlc output
+/internal/storage/db/generated
