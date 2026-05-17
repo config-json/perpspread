@@ -6,9 +6,9 @@ Golang service that aggregates order book data across perp exchanges and exposes
 3. Run `sqlc generate`. This will add go functions for all database operations. If you don't have `sqlc` installed, run `go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest` first.
 4. Run `go run ./cmd/api` and `go run ./cmd/reader` in parallel to start both services.
 ## Architecture
-![[docs/architecture.png]]
+![Architecture](docs/architecture.png)
 ### Reader
-![[docs/reader.png]]
+![Reader](docs/reader.png)
 The reader service ingests order book data from multiple exchanges, normalizes it, computes derived metrics, and writes results to the database.
 #### Base Reader
 - Owns the common lifecycle for all exchange readers
