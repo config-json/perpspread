@@ -64,6 +64,7 @@ type ApiError int
 const (
 	errInvalidPeriod ApiError = iota
 	errMissingSymbol
+	errMissingPeriod
 )
 
 func (e ApiError) Error() string {
@@ -72,6 +73,8 @@ func (e ApiError) Error() string {
 		return "invalid period specified"
 	case errMissingSymbol:
 		return "symbol parameter is required"
+	case errMissingPeriod:
+		return "period parameter is required"
 	default:
 		return "unknown API error"
 	}

@@ -178,6 +178,10 @@ func getParams(r *http.Request) (*requestParams, error) {
 		return nil, errMissingSymbol
 	}
 
+	if period == "" {
+		return nil, errMissingPeriod
+	}
+
 	timeframe, interval, err := parsePeriod(period)
 	if err != nil {
 		return nil, err

@@ -6,6 +6,8 @@ require github.com/gorilla/websocket v1.5.3
 
 require github.com/shopspring/decimal v1.4.0
 
+require github.com/joho/godotenv v1.5.1
+
 require (
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

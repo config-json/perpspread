@@ -8,9 +8,12 @@ import (
 
 	"github.com/config-json/perpspread/internal/reader"
 	"github.com/config-json/perpspread/internal/storage"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	_ = godotenv.Load()
+
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 

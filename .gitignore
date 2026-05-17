@@ -6,3 +6,6 @@
 
 # Sqlc output
 /internal/storage/db/generated
+
+# Env
+.env

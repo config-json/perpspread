@@ -1,6 +1,8 @@
 package config
 
-import "time"
+import (
+	"time"
+)
 
 type storageConfig struct {
 	Host            string
@@ -17,12 +19,12 @@ type storageConfig struct {
 }
 
 var Storage = &storageConfig{
-	Host:            "localhost",
-	Port:            5432,
-	User:            "main",
-	Password:        "",
-	Database:        "perpspread",
-	SSLMode:         "disable",
+	Host:            getEnv("DB_HOST"),
+	Port:            getEnvInt("DB_PORT"),
+	User:            getEnv("DB_USER"),
+	Password:        getEnv("DB_PASSWORD"),
+	Database:        getEnv("DB_DATABASE"),
+	SSLMode:         getEnv("DB_SSL_MODE"),
 	MaxConns:        10,
 	MinConns:        2,
 	MaxConnLifetime: time.Minute * 30,
