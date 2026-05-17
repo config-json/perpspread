@@ -2,6 +2,8 @@ package config
 
 import (
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 type storageConfig struct {
@@ -18,16 +20,21 @@ type storageConfig struct {
 	HealthCheck     time.Duration
 }
 
-var Storage = &storageConfig{
-	Host:            getEnv("DB_HOST"),
-	Port:            getEnvInt("DB_PORT"),
-	User:            getEnv("DB_USER"),
-	Password:        getEnv("DB_PASSWORD"),
-	Database:        getEnv("DB_DATABASE"),
-	SSLMode:         getEnv("DB_SSL_MODE"),
-	MaxConns:        10,
-	MinConns:        2,
-	MaxConnLifetime: time.Minute * 30,
-	MaxConnIdleTime: time.Minute * 5,
-	HealthCheck:     time.Minute,
+var Storage *storageConfig
+
+func init() {
+	_ = godotenv.Load()
+	Storage = &storageConfig{
+		Host:            getEnv("DB_HOST"),
+		Port:            getEnvInt("DB_PORT"),
+		User:            getEnv("DB_USER"),
+		Password:        getEnv("DB_PASSWORD"),
+		Database:        getEnv("DB_DATABASE"),
+		SSLMode:         getEnv("DB_SSL_MODE"),
+		MaxConns:        10,
+		MinConns:        2,
+		MaxConnLifetime: time.Minute * 30,
+		MaxConnIdleTime: time.Minute * 5,
+		HealthCheck:     time.Minute,
+	}
 }

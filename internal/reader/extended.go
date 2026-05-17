@@ -12,7 +12,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-const extendedBaseUrl = "wss://app.extended.exchange/stream.extended.exchange/v1/orderbooks/"
+const extendedBaseUrl = "wss://api.starknet.extended.exchange/stream.extended.exchange/v1/orderbooks/"
 
 type extendedPriceLevel struct {
 	Price    string `json:"p"`
